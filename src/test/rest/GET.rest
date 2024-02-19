@@ -1,0 +1,33 @@
+# Listar todos registros da tabela parking-spot na página 0.
+# Deve retornar:
+# status: 200
+# { content: [ ParkingSpotModel, ParkingSpotModel ], PageableValues }
+
+GET http://localhost:8080/parking-spot
+
+###
+
+# Listar todos registros da tabela parking-spot, utilizando a paginação.
+# Deve retornar:
+# status: 200
+# { content: [ ParkingSpotModel ], PageableValues }
+
+GET http://localhost:8080/parking-spot?page=0&size=5&sort=registrationDate,ASC
+
+###
+
+# Listar um registros da tabela parking-spot.
+# Deve retornar:
+# status: 200
+# ParkingSpotModel
+
+GET http://localhost:8080/parking-spot/f8726c3c-1343-4ce8-bffe-5f8669f7dc54
+
+###
+
+# Listar um registro que não existe na tabela parking-spot.
+# Deve retornar:
+# status: 404
+# Parking Spot not found!
+
+GET http://localhost:8080/parking-spot/693ab9a8-c45a-4e7b-8048-92f052c492e9

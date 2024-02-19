@@ -1,0 +1,18 @@
+# Atualizar um registro. 
+# Deve retornar:
+# status: 200
+# ParkingSpotModel
+
+PUT http://localhost:8080/parking-spot/593d398f-f553-4d16-810c-2c6eb40e0b7a
+content-type: application/json
+
+{
+    "parkingSpotNumber": "2A1S",
+    "licensePlateCar": "HUE3422",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "preto",
+    "responsibleName": "John Doe da Silva",
+    "apartment": "301",
+    "block": "C"
+}

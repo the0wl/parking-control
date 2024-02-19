@@ -1,0 +1,15 @@
+# Deletar um registros da tabela parking-spot.
+# Deve retornar:
+# status: 200
+# Parking Spot deleted successfully!
+
+DELETE http://localhost:8080/parking-spot/f8726c3c-1343-4ce8-bffe-5f8669f7dc54
+
+###
+
+# Deletar um registro que não existe na tabela parking-spot.
+# Deve retornar:
+# status: 404
+# Parking Spot not found!
+
+DELETE http://localhost:8080/parking-spot/f8726c3c-1343-4ce8-bffe-5f8669f7dc54

@@ -1,0 +1,99 @@
+# Diferentes valores, porém o campo `parkingSpotNumber` já foi utilizado. 
+# Deve retornar:
+# status: 409
+# Conflict: Parking Spot is already in use!
+
+POST http://localhost:8080/parking-spot
+content-type: application/json
+
+{
+    "parkingSpotNumber": "sample",
+    "licensePlateCar": "RRS8563",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "black",
+    "responsibleName": "John Doe",
+    "apartment": "302",
+    "block": "C"
+}
+
+###
+
+# Diferentes valores, porém o campo `licensePlateCar` já foi utilizado. 
+# Deve retornar:
+# status: 409
+# Conflict: License Plate Car is already in use!
+
+POST http://localhost:8080/parking-spot
+content-type: application/json
+
+{
+    "parkingSpotNumber": "sampleA",
+    "licensePlateCar": "RRS8562",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "black",
+    "responsibleName": "John Doe",
+    "apartment": "304",
+    "block": "B"
+}
+
+###
+
+# Diferentes valores, porém os campos `apartment` e `block` já foram utilizados. 
+# Deve retornar:
+# status: 409
+# Conflict: Parking Spot already registered for this apartment/block!
+
+POST http://localhost:8080/parking-spot
+content-type: application/json
+
+{
+    "parkingSpotNumber": "sampleB",
+    "licensePlateCar": "RRS8566",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "black",
+    "responsibleName": "John Doe",
+    "apartment": "304",
+    "block": "B"
+}
+
+###
+
+# Campo licensePlateCar não foi enviado e como qualquer campo obrigatório. 
+# Deve retornar:
+# status: 400
+
+POST http://localhost:8080/parking-spot
+content-type: application/json
+
+{
+    "parkingSpotNumber": "sample",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "black",
+    "responsibleName": "John Doe",
+    "apartment": "304",
+    "block": "A"
+}
+
+###
+
+# Campo licensePlateCar com um tamanho acima do previsto. 
+# Deve retornar:
+# status: 400
+
+POST http://localhost:8080/parking-spot
+content-type: application/json
+
+{
+    "parkingSpotNumber": "sample",
+    "licensePlateCar": "RRS8562sadsa",
+    "brandCar": "audi",
+    "modelCar": "m8",
+    "colorCar": "black",
+    "responsibleName": "John Doe",
+    "apartment": "304",
+    "block": "A"
+}
